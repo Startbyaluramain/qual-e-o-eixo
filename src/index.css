@@ -1,0 +1,271 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-sans: 'Bai Jamjuree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-display: 'Cascadia Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --font-mono: 'Cascadia Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+    --em-black: #1e1d1d;
+    --em-offwhite: #f4f4f4;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    background-color: var(--em-offwhite);
+    color: var(--em-black);
+    scroll-behavior: smooth;
+  }
+
+  html.dark {
+    background-color: var(--em-black);
+    color: var(--em-offwhite);
+  }
+
+  html.high-contrast:not(.dark) {
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  html.dark.high-contrast {
+    background-color: #000000;
+    color: #ffffff;
+  }
+
+  h1, h2, .font-display {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  .font-mono-tabular {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  :focus-visible {
+    outline: 2px solid #2076aa;
+    outline-offset: 2px;
+  }
+
+  html.dark :focus-visible {
+    outline-color: #c8ff00;
+  }
+
+  html.high-contrast:not(.dark) :focus-visible {
+    outline: 4px solid #003c75 !important;
+    outline-offset: 3px !important;
+  }
+
+  html.dark.high-contrast :focus-visible {
+    outline: 4px solid #ffff00 !important;
+    outline-offset: 3px !important;
+  }
+}
+
+.em-hud-grid {
+  background-color: #f4f4f4;
+  background-image:
+    linear-gradient(to right, rgba(30, 29, 29, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(30, 29, 29, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+html.dark .em-hud-grid {
+  background-color: #1e1d1d;
+  background-image:
+    linear-gradient(to right, rgba(244, 244, 244, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(244, 244, 244, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+html.high-contrast:not(.dark) .em-hud-grid {
+  background-color: #ffffff;
+  background-image: none;
+}
+
+html.dark.high-contrast .em-hud-grid {
+  background-color: #000000;
+  background-image: none;
+}
+
+.em-brand-gradient-bar {
+  background: linear-gradient(90deg, #f80000 0%, #ce66ff 55%, #31b1ff 100%);
+}
+
+html.dark #Camada_1 .cls-start-text {
+  fill: #f4f4f4;
+}
+
+html.high-contrast:not(.dark) #Camada_1 .cls-start-text {
+  fill: #000000;
+}
+
+html.dark.high-contrast #Camada_1 .cls-start-text {
+  fill: #ffffff;
+}
+
+/* ==========================================================================
+   Modo Alto Contraste: bordas espessas em todos os componentes interativos
+   e cores mais fortes para acessibilidade visual (Claro e Escuro)
+   ========================================================================== */
+
+html.high-contrast button,
+html.high-contrast a[href],
+html.high-contrast input,
+html.high-contrast textarea,
+html.high-contrast select,
+html.high-contrast [role="switch"] {
+  border-width: 3px !important;
+  border-style: solid !important;
+}
+
+html.high-contrast button:disabled,
+html.high-contrast button[aria-disabled="true"] {
+  opacity: 0.65 !important;
+}
+
+/* Alto Contraste — Tema Claro */
+html.high-contrast:not(.dark) header,
+html.high-contrast:not(.dark) footer,
+html.high-contrast:not(.dark) section,
+html.high-contrast:not(.dark) aside,
+html.high-contrast:not(.dark) article,
+html.high-contrast:not(.dark) [role="dialog"] > div {
+  border-color: #000000 !important;
+}
+
+html.high-contrast:not(.dark) section,
+html.high-contrast:not(.dark) aside,
+html.high-contrast:not(.dark) header,
+html.high-contrast:not(.dark) footer,
+html.high-contrast:not(.dark) #settings-panel,
+html.high-contrast:not(.dark) #dica-do-eixo-panel,
+html.high-contrast:not(.dark) [role="dialog"] > div {
+  background-color: #ffffff !important;
+  border-color: #000000 !important;
+  border-width: 3px !important;
+}
+
+html.high-contrast:not(.dark) button,
+html.high-contrast:not(.dark) a[href],
+html.high-contrast:not(.dark) input,
+html.high-contrast:not(.dark) textarea,
+html.high-contrast:not(.dark) select,
+html.high-contrast:not(.dark) [role="switch"] {
+  border-color: #000000 !important;
+}
+
+html.high-contrast:not(.dark) [class*="text-zinc-"] {
+  color: #000000 !important;
+}
+
+html.high-contrast:not(.dark) input,
+html.high-contrast:not(.dark) textarea {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html.high-contrast:not(.dark) [role="progressbar"] {
+  background-color: #ffffff !important;
+  border: 3px solid #000000 !important;
+}
+
+html.high-contrast:not(.dark) [role="progressbar"] > div {
+  background-color: #003c75 !important;
+}
+
+html.high-contrast:not(.dark) button[aria-pressed="true"]:not([class*="bg-[#"]) {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+html.high-contrast:not(.dark) button[aria-pressed="true"] {
+  box-shadow: inset 0 0 0 2px #000000;
+}
+
+/* Alto Contraste — Tema Escuro */
+html.dark.high-contrast header,
+html.dark.high-contrast footer,
+html.dark.high-contrast section,
+html.dark.high-contrast aside,
+html.dark.high-contrast article,
+html.dark.high-contrast [role="dialog"] > div {
+  border-color: #ffffff !important;
+}
+
+html.dark.high-contrast section,
+html.dark.high-contrast aside,
+html.dark.high-contrast header,
+html.dark.high-contrast footer,
+html.dark.high-contrast #settings-panel,
+html.dark.high-contrast #dica-do-eixo-panel,
+html.dark.high-contrast [role="dialog"] > div {
+  background-color: #000000 !important;
+  border-color: #ffffff !important;
+  border-width: 3px !important;
+}
+
+html.dark.high-contrast button,
+html.dark.high-contrast a[href],
+html.dark.high-contrast input,
+html.dark.high-contrast textarea,
+html.dark.high-contrast select,
+html.dark.high-contrast [role="switch"] {
+  border-color: #ffffff !important;
+}
+
+html.dark.high-contrast button[class*="bg-[#c8ff00]"],
+html.dark.high-contrast a[class*="bg-[#c8ff00]"],
+html.dark.high-contrast a[class*="bg-[#31b1ff]"],
+html.dark.high-contrast button[class*="bg-[#ffcd40]"] {
+  border-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html.dark.high-contrast button[aria-pressed="true"]:not([class*="bg-[#"]) {
+  background-color: #ffff00 !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+}
+
+html.dark.high-contrast button[aria-pressed="true"] {
+  box-shadow: inset 0 0 0 2px #000000;
+}
+
+html.dark.high-contrast input,
+html.dark.high-contrast textarea {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+html.dark.high-contrast [class*="dark:text-[#a8a6a6]"],
+html.dark.high-contrast [class*="dark:text-[#9c9a9a]"],
+html.dark.high-contrast [class*="dark:text-[#c4c2c2]"],
+html.dark.high-contrast [class*="dark:text-[#d4d2d2]"],
+html.dark.high-contrast [class*="dark:text-[#e4e4e4]"] {
+  color: #ffffff !important;
+}
+
+html.dark.high-contrast [role="progressbar"] {
+  background-color: #000000 !important;
+  border: 3px solid #ffffff !important;
+}
+
+html.dark.high-contrast [role="progressbar"] > div {
+  background-color: #e6ff00 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
